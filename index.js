@@ -10,8 +10,6 @@ const mongoose = require('mongoose')
 //     app.emit('pronto')
 // })
 
-
-
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.resolve(__dirname,'public')))
 app.set('views', path.resolve(__dirname,'src','Views'))
@@ -24,13 +22,13 @@ async function connectMongoAndServer(connectionString){
   
     try{
         await mongoose.connect(connectionString)
+        console.log('MongoDB-Conectado')
         app.listen(3000, ()=> { console.log('Servidor rodando na porta 3000')})
     
     }catch(erro){
         console.log(erro)
     }   
 }
-
 
 
 connectMongoAndServer(process.env.connectionString)
