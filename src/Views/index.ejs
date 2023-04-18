@@ -1,28 +1,41 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Modelo</title>
-  
-</head>
-
-<body>
-
+<%- include('includes/head') %>
   <section class="container">
-    
-   <h1> Pessoas </h1>
-   <form action="/" method="post">
+
+    <h1>
+      Loren Normal!!
+    </h1>
+ 
+    <!-- Usando variavel local do EJS 
+      
+    <h1>
+      <%= umaVariavelLocal %>
+    </h1>
+    -->
+
+    <!--  usando o EJS!!
+   <h1>
+    <% if (typeof titulo !== 'undefined') { %>
+      <%= titulo %>
+    <% } else { %>  
+      <%= "Titulo não definido!" %>
+    <% } %>
+
+  </h1>
+
+  <p> 
+    <% numeros.forEach((num)=> { %>
+      <%= num %> <br>
+    <% }) %>
+  </p> -->
+
+    <form action="/" method="post">
+      <input type="text" name="_csrf" value="<%=csrfToken%>" >
       <label for="">Nome:</label>
       <input type="text" name="cliente">
       <button> Submit </button>
-   </form>
+    </form>
   </section>
 
-  
-  <script src="./assets/js/bundle.js"></script>
-</body>
+  <%- include('includes/footer') %>
 
-</html>
+  
